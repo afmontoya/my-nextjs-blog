@@ -1,0 +1,17 @@
+import Link from "next/link";
+
+export default function BlogCard({ post }) {
+  return (
+    <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+      <h2 className="text-2xl font-bold text-gray-800 mb-2">{post.title}</h2>
+      <p className="text-gray-600 mb-4">{post.date}</p>
+      <p className="text-gray-700">{post.excerpt}</p>
+      <Link 
+        href={`/blog/${post.slug}`}
+        className="mt-4 inline-block text-blue-600 hover:text-blue-800"
+      >
+        Read more →
+      </Link>
+    </div>
+  );
+}

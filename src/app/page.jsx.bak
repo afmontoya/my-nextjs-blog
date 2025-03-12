@@ -1,0 +1,24 @@
+import { getAllPosts } from '@/data/posts';
+import BlogCard from '@/components/BlogCard';
+import Link from 'next/link';
+
+export default function Home() {
+  const posts = getAllPosts();
+  
+  return (
+    <main className="container mx-auto px-4 py-8">
+      <h1 className="text-4xl font-bold text-center mb-8">My Next.js Blog</h1>
+      
+      <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+        Welcome to my blog built with Next.js and GitHub Codespaces. 
+        Here I share my thoughts and experiences with web development.
+      </p>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        {posts.map(post => (
+          <BlogCard key={post.id} post={post} />
+        ))}
+      </div>
+    </main>
+  );
+}
